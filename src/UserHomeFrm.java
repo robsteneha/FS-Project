@@ -14,7 +14,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class UserHomeFrm extends JFrame {
-
 	private JPanel contentPane;
 	private String username;
 	/**
@@ -33,14 +32,13 @@ public class UserHomeFrm extends JFrame {
 		});
 	}*/
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public UserHomeFrm(String username) {
 		this.username = username;
 		setTitle(username+"'s Home");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 650);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -82,6 +80,15 @@ public class UserHomeFrm extends JFrame {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnNewButton_1.setBounds(633, 455, 248, 58);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnLogOut = new JButton("Log Out");
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		btnLogOut.setBounds(875, 568, 99, 32);
+		this.getContentPane().add(btnLogOut);
 		
 		JLabel lblContentBg = new JLabel("");
 		lblContentBg.setBackground(Color.LIGHT_GRAY);

@@ -5,6 +5,9 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -41,6 +44,7 @@ public class AddDataDialog extends JDialog {
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		this.setLocationRelativeTo(null);
 		contentPanel.setLayout(null);
 
 		JLabel CNameLabel = new JLabel("Country Name");
@@ -154,7 +158,7 @@ public class AddDataDialog extends JDialog {
 		}
 		
 		if (!(phno.length() == 12)) {
-			if((phno.length()==11) && (phno.charAt(0)==1))
+			if((phno.length()==11) && (phno.charAt(0)=='1'))
 			{
 				
 			}
@@ -174,8 +178,16 @@ public class AddDataDialog extends JDialog {
 			JOptionPane.showMessageDialog(null, "please enter a valid name");
 			return;
 		}
-
-		String finalToString = cName + " " + phno + " " + name;
+		
+		if(cName.equalsIgnoreCase("usa"))
+		{
+			cName = cName.toUpperCase();
+		}
+		else
+		{
+			cName = StringUtils.capitalize(cName);
+		}
+		String finalToString = cName + " " + phno + " " + StringUtils.capitalize(name);
 		File file = new File("D:\\4ISE1JAVA\\File structures project\\src\\data.txt");
 		FileWriter fr = null;
 		try {

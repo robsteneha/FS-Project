@@ -47,6 +47,7 @@ public class DeleteDataDialog extends JDialog {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setTitle("Delete Details");
 		setBounds(100, 100, 1000, 650);
+		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		contentPanel.setBounds(0, 0, 0, 0);
 		contentPanel.setLayout(new FlowLayout());
@@ -144,7 +145,7 @@ public class DeleteDataDialog extends JDialog {
 			JOptionPane.showMessageDialog(null, "please enter country code");
 			return;
 		}
-		if (countryCode.length() != 2) {
+		if (Integer.parseInt(countryCode) >= 100 || Integer.parseInt(countryCode) <=0) {
 			JOptionPane.showMessageDialog(null, "please enter a valid country code");
 			return;
 		}
@@ -158,7 +159,8 @@ public class DeleteDataDialog extends JDialog {
 			return;
 		}
 		
-		String goodPhoneNumber = (countryCode + restOfNumStr);
+		//String goodPhoneNumber = (countryCode + restOfNumStr);
+		long goodPhoneNumber = Long.parseLong((countryCode + restOfNumStr));
 		boolean foundNumber = false;
 		try {
 			BufferedReader file = new BufferedReader(new FileReader("D:\\4ISE1JAVA\\File structures project\\src\\data.txt"));
@@ -168,7 +170,7 @@ public class DeleteDataDialog extends JDialog {
 	        while ((line = file.readLine()) != null) {
 	            // replace the line here
 	        	String[] s = line.split(" ");
-	        	if(s[1].equals(goodPhoneNumber))
+	        	if(Long.parseLong(s[1])==goodPhoneNumber)
 	        	{
 	        		foundNumber = true;
 	        		continue;

@@ -59,6 +59,7 @@ public class RegistrationDialog extends JDialog {
 		setTitle("User Registration");
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 650);
+		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -72,8 +73,7 @@ public class RegistrationDialog extends JDialog {
 		}
 		{
 			JLabel lblRegistration = new JLabel("Registeration");
-			lblRegistration.setBackground(Color.WHITE);
-			lblRegistration.setForeground(UIManager.getColor("Button.disabledShadow"));
+			lblRegistration.setForeground(Color.WHITE);
 			lblRegistration.setHorizontalAlignment(SwingConstants.CENTER);
 			lblRegistration.setFont(new Font("Times New Roman", Font.BOLD, 25));
 			lblRegistration.setBounds(406, 98, 164, 44);

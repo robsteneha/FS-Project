@@ -1,3 +1,6 @@
 abc@gmail.com,abc@123,Abc,919482019823
 ankit@gmail.com,ankit@123,Ankit,918762540392
 deva12@gmail.com,deva,Deva,17937012374
+manu@gmail.com,manu,Manu,912233445566
+ashish@gmail.com,ashish123,Ashish,913434343434
+vaishali@gmail.com,123,vaishali,911111111111

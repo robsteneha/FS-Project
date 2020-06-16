@@ -31,6 +31,7 @@ public class searchByNumberDialog extends JDialog {
 		getContentPane().setForeground(Color.BLACK);
 		setTitle("Search By Number");
 		setBounds(100, 100, 1000, 650);
+		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		{
 			JPanel buttonPane = new JPanel();
@@ -112,7 +113,7 @@ public class searchByNumberDialog extends JDialog {
 			JOptionPane.showMessageDialog(null, "please enter country code");
 			return;
 		}
-		if (countryCode.length() != 2) {
+		if (Integer.parseInt(countryCode) >= 100 || Integer.parseInt(countryCode) <=0) {
 			JOptionPane.showMessageDialog(null, "please enter a valid country code");
 			return;
 		}

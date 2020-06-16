@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 
@@ -11,6 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
@@ -21,6 +23,9 @@ import java.awt.event.ActionEvent;
 
 public class ModifyDataDialog extends JDialog {
 
+	/**
+	 * 
+	 */
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textFieldCountryCode;
 	private JTextField textFieldNumber;
@@ -48,6 +53,7 @@ public class ModifyDataDialog extends JDialog {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setTitle("Modify Data");
 		setBounds(100, 100, 1000, 650);
+		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		contentPanel.setBounds(0, 0, 0, 0);
 		contentPanel.setLayout(new FlowLayout());
@@ -160,7 +166,7 @@ public class ModifyDataDialog extends JDialog {
 			JOptionPane.showMessageDialog(null, "please enter country code");
 			return;
 		}
-		if (countryCode.length() != 2) {
+		if (Integer.parseInt(countryCode) >= 100 || Integer.parseInt(countryCode) <=0) {
 			JOptionPane.showMessageDialog(null, "please enter a valid country code");
 			return;
 		}
@@ -182,7 +188,9 @@ public class ModifyDataDialog extends JDialog {
 			JOptionPane.showMessageDialog(null, "Name can only contain letters");
 			return;
 		}
-		String goodPhoneNumber = (countryCode + restOfNumStr);
+		
+		//String goodPhoneNumber = (countryCode + restOfNumStr);
+		long goodPhoneNumber = Long.parseLong((countryCode + restOfNumStr));
 		boolean foundNumber = false;
 		try {
 			BufferedReader file = new BufferedReader(new FileReader("D:\\4ISE1JAVA\\File structures project\\src\\data.txt"));
@@ -192,10 +200,10 @@ public class ModifyDataDialog extends JDialog {
 	        while ((line = file.readLine()) != null) {
 	            // replace the line here
 	        	String[] s = line.split(" ");
-	        	if(s[1].equals(goodPhoneNumber))
+	        	if(Long.parseLong(s[1])==goodPhoneNumber)
 	        	{
 	        		foundNumber = true;
-	        		line = s[0]+" "+s[1]+" "+newName;
+	        		line = s[0]+" "+s[1]+" "+StringUtils.capitalize(newName);
 	        	}
 	            inputBuffer.append(line);
 	            inputBuffer.append('\n');

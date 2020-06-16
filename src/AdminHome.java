@@ -47,6 +47,7 @@ public class AdminHome {
 		frmAdminHome.setTitle("Admin Home");
 		frmAdminHome.setBounds(100, 100, 1000, 650);
 		frmAdminHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmAdminHome.setLocationRelativeTo(null);
 		frmAdminHome.getContentPane().setLayout(null);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
@@ -84,29 +85,38 @@ public class AdminHome {
 		btnDeleteDetails.setBounds(610, 271, 246, 63);
 		frmAdminHome.getContentPane().add(btnDeleteDetails);
 		
-		JButton btnNewButton = new JButton("View Details");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnViewDetails = new JButton("View Details");
+		btnViewDetails.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnViewDetails.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AdminViewAllData adminViewAllData = new AdminViewAllData();
 				adminViewAllData.setModal(true);
 				adminViewAllData.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(117, 459, 246, 63);
-		frmAdminHome.getContentPane().add(btnNewButton);
+		btnViewDetails.setBounds(117, 459, 246, 63);
+		frmAdminHome.getContentPane().add(btnViewDetails);
 		
-		JButton btnNewButton_1 = new JButton("Modify Details");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnModifyDetails = new JButton("Modify Details");
+		btnModifyDetails.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ModifyDataDialog modifyDataDialog = new ModifyDataDialog();
 				modifyDataDialog.setModal(true);
 				modifyDataDialog.setVisible(true);
 			}
 		});
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton_1.setBounds(610, 459, 246, 63);
-		frmAdminHome.getContentPane().add(btnNewButton_1);
+		btnModifyDetails.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnModifyDetails.setBounds(610, 459, 246, 63);
+		frmAdminHome.getContentPane().add(btnModifyDetails);
+		
+		JButton btnLogOut = new JButton("Log Out");
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmAdminHome.dispose();
+			}
+		});
+		btnLogOut.setBounds(875, 568, 99, 32);
+		frmAdminHome.getContentPane().add(btnLogOut);
 		
 		JLabel lblContentBg = new JLabel("");
 		lblContentBg.setBackground(Color.LIGHT_GRAY);

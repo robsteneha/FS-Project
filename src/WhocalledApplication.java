@@ -4,13 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JPanel;
 
-public class StartingPage {
+public class WhocalledApplication {
 
 	private JFrame frmWhocalled;
 
@@ -21,7 +22,7 @@ public class StartingPage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StartingPage window = new StartingPage();
+					WhocalledApplication window = new WhocalledApplication();
 					window.frmWhocalled.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +34,7 @@ public class StartingPage {
 	/**
 	 * Create the application.
 	 */
-	public StartingPage() {
+	public WhocalledApplication() {
 		initialize();
 	}
 
@@ -42,11 +43,15 @@ public class StartingPage {
 	 */
 	private void initialize() {
 		frmWhocalled = new JFrame();
+		//frmWhocalled.setLocation(screenSize.width/2-frmWhocalled.getSize().width/2,screenSize.height/2-frmWhocalled.getSize().height/2);
+		//frmWhocalled.setLocationRelativeTo(null);
+		//int x = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+		//int y = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 		frmWhocalled.setTitle("WHOCALLED");
 		frmWhocalled.setBounds(100, 100, 1000, 650);
 		frmWhocalled.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmWhocalled.setLocationRelativeTo(null);
 		frmWhocalled.getContentPane().setLayout(null);
-		
 		JButton btnAdminLogin = new JButton("User Login");
 		btnAdminLogin.setForeground(Color.BLACK);
 		btnAdminLogin.setBackground(Color.LIGHT_GRAY);

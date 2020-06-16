@@ -36,6 +36,7 @@ public class SearchByNameDialog extends JDialog {
 	public SearchByNameDialog() {
 		setTitle("Search By Name");
 		setBounds(100, 100, 1000, 650);
+		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -158,6 +159,5 @@ public class SearchByNameDialog extends JDialog {
 				e.printStackTrace();
 			}
 		}
-
 	}
 }
